@@ -25,26 +25,13 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
+type SearchProps = {
+  handleSearch: (e: any) => void
+}
 
-
-const Navbar: React.FC = () => {
+const Navbar = ({handleSearch}:SearchProps) => {
   const classes = useStyle();
 
-  function getSearchData(e:any) {
-    const inputVal = e.target.value.toLowerCase();
-    const tableRow = document.getElementsByClassName('tableRow');
-    Array.from(tableRow).forEach(function (element) {
-      let title = element.getElementsByClassName("title")[0].innerHTML;
-      let url = element.getElementsByClassName('url')[0].innerHTML;
-      let author = element.getElementsByClassName('author')[0].innerHTML;
-      if (title.includes(inputVal) || url.includes(inputVal) || author.includes(inputVal)) {
-        element.style.display = "block";
-      }
-      else {
-        element.style.display = "none";
-      }
-  })
-  }
   return (
     <AppBar position='fixed'>
       <Toolbar className={classes.toolbar}>
@@ -53,7 +40,7 @@ const Navbar: React.FC = () => {
         </Typography>
         <div className={classes.search}>
           <Search />
-          <InputBase placeholder='Search...' className={classes.input} onChange={(e)=>getSearchData(e)} />
+          <InputBase placeholder='Search...' className={classes.input} onChange={(e)=>handleSearch(e)} />
         </div>
       </Toolbar>
     </AppBar>
