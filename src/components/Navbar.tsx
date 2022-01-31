@@ -40,7 +40,8 @@ const Navbar = ({handleSearch}:SearchProps) => {
         </Typography>
         <div className={classes.search}>
           <Search />
-          <InputBase placeholder='Search...' className={classes.input} onChange={(e)=>handleSearch(e)} />
+          {/* <input placeholder='Search...' data-testid="searchBar" value="SearchData" className={classes.input} onChange={(e)=>handleSearch(e)} type="text" /> */}
+          <InputBase placeholder='Search...' data-testid="searchBar" value="SearchData" className={classes.input} onChange={(e)=>handleSearch(e)} />
         </div>
       </Toolbar>
     </AppBar>

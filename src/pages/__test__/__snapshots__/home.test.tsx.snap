@@ -30,6 +30,7 @@ exports[`Home Component Match SnapShot 1`] = `
         </svg>
         <div
           className="MuiInputBase-root makeStyles-input-30"
+          data-testid="searchBar"
           onClick={[Function]}
         >
           <input
@@ -40,6 +41,7 @@ exports[`Home Component Match SnapShot 1`] = `
             onFocus={[Function]}
             placeholder="Search..."
             type="text"
+            value="SearchData"
           />
         </div>
       </div>
@@ -74,6 +76,7 @@ exports[`Home Component Match SnapShot 1`] = `
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-head makeStyles-heading-24 MuiTableCell-alignCenter"
+            data-testid="title"
             scope="col"
           >
             Title

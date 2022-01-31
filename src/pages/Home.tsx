@@ -110,7 +110,7 @@ const Home = () => {
                     <TableHead>
                         <TableRow data-testid="tableRow">
                             <TableCell align="center" className={classes.heading} data-testid="serialNo">Sr. No.</TableCell>
-                            <TableCell align="center" className={classes.heading}>Title</TableCell>
+                            <TableCell align="center" className={classes.heading} data-testid="title">Title</TableCell>
                             <TableCell align="center" className={classes.heading}>URL</TableCell>
                             <TableCell align="center" className={classes.heading}>Created_at</TableCell>
                             <TableCell align="center" className={classes.heading}>Author</TableCell>

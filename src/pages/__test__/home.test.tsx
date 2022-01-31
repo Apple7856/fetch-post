@@ -1,7 +1,13 @@
 import React from 'react';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Home from '../Home';
+import Navbar from '../../components/Navbar';
+import axios from "axios";
+
+afterEach(() => {
+    cleanup();
+});
 
 
 describe("Home Component", () => {
@@ -24,4 +30,22 @@ describe("Home Component", () => {
         expect(tree).toMatchSnapshot();
     })
 
+    it('Search input value', () => {
+        render(<Navbar handleSearch={() => jest.fn()} />);
+        const searchValue: any = screen.getByTestId('searchBar').querySelector('input');
+        fireEvent.change(searchValue, { target: { value: "SearchData" } })
+        expect(searchValue.value).toBe("SearchData")
+    })
+
 })
+
+describe('on useEffect Call Api for data', () => {
+    it("should return users list", async () => {
+        await act(async () => {
+            const responce = await axios.get("https://hn.algolia.com/api/v1/search_by_date?tags=story&page=0");
+            expect(responce.data.hits).toBeDefined();
+        })
+    });
+})
+
+
